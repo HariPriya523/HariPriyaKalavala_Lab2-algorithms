@@ -20,23 +20,22 @@ public class PayMoneyTransaction {
 		}
 		System.out.println("Enter the total no of targets that needs to be achieved");
 		int noofTargets = sc.nextInt();
-		if (size >= noofTargets) {
+		while(noofTargets!=0) {
 			System.out.println("Enter the value of target");
 			int targetValue = sc.nextInt();
 			if (totalTransaction >= targetValue) {
-				for(int j=0;j<size;j++) {
-					individualTransaction+=transactions[j];
-					if(individualTransaction >= targetValue){
-						System.out.println("Target has achieved after" +(j+1)+ "transactions");
+				for (int j = 0; j < size; j++) {
+					individualTransaction += transactions[j];
+					if (individualTransaction >= targetValue) {
+						System.out.println("Target has achieved after " + (j + 1) + " transactions");
 						break;
 					}
 				}
 			} else {
 				System.out.println("Given Target didnt acheived");
 			}
-		} else {
-			System.out.println("No. of Targets didnt acheived");
-		}
+			noofTargets--;
+		} 
 
 		sc.close();
 	}
